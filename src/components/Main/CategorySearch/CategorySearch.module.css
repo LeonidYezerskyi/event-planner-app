@@ -1,0 +1,16 @@
+.categoryWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 2px 4px 9px 0px #a68dae47;
+  border-radius: 8px;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  fill: #7b61ff;
+  padding: 16px;
+}

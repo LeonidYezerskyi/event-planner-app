@@ -1,0 +1,16 @@
+.sortWrapper {
+  box-shadow: 2px 4px 9px 0px #a68dae47;
+  border-radius: 8px;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.img {
+  width: 24px;
+  height: 24px;
+  padding: 16px;
+}
+
+.sortWrapper:hover .img {
+  fill: red; /* Змінюємо колір іконки при ховері на контейнер */
+}

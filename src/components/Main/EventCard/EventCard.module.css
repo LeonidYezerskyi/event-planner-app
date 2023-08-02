@@ -1,0 +1,43 @@
+.cardWrapper {
+  position: relative;
+  width: 272px;
+  height: 480px;
+  box-shadow: 2px 4px 9px 0px #a68dae47;
+  border-radius: 12px;
+  background-color: #ffffff;
+}
+
+.qualityWrapper {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.categoryWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 12px;
+  margin-left: 12px;
+  border-radius: 8px;
+  background-color: #ffffff;
+}
+
+.categoryText {
+  font-family: Poppins;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.4;
+  text-align: center;
+  padding: 6px 12px;
+}
+
+.priorityWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 12px;
+  border-radius: 8px;
+  background-color: #ffffff;
+}

@@ -1,0 +1,16 @@
+.createWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 2px 4px 9px 0px #a68dae47;
+  border-radius: 8px;
+  background-color: #7b61ff;
+  cursor: pointer;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  fill: white;
+  padding: 16px;
+}
