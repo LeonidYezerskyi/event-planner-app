@@ -62,27 +62,3 @@ textarea {
   margin: 0;
   border: 0;
 }
-
-@font-face {
-  font-family: "Poppins", sans-serif;
-  src: local("Poppins"),
-    url(./assets/Font/Poppins/Poppins-SemiBold.ttf) format("ttf");
-  font-weight: 600;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Poppins", sans-serif;
-  src: local("Poppins"),
-    url(./assets/Font/Poppins/Poppins-Medium.ttf) format("ttf");
-  font-weight: 500;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Poppins", sans-serif;
-  src: local("Poppins"),
-    url(./assets/Font/Poppins/Poppins-Regular.ttf) format("ttf");
-  font-weight: 400;
-  font-style: normal;
-}
