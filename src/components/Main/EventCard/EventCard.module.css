@@ -5,6 +5,7 @@
   box-shadow: 2px 4px 9px 0px #a68dae47;
   border-radius: 12px;
   background-color: #ffffff;
+  overflow: hidden;
 }
 
 .qualityWrapper {
@@ -40,4 +41,80 @@
   margin-top: 12px;
   border-radius: 8px;
   background-color: #ffffff;
+}
+
+.img {
+  width: 100%;
+  height: 480px;
+  object-fit: cover;
+}
+
+.datetimeWrapper {
+  position: absolute;
+  width: 272px;
+  top: 62%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  opacity: 80%;
+
+  .cardWrapper:hover & {
+    top: 51%;
+  }
+}
+
+.dateInfo {
+  font-family: Poppins;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #7b61ff;
+  padding: 8px 16px;
+}
+
+.textWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: absolute;
+  top: 70%;
+  background-color: #ffffff;
+  height: 200px;
+
+  .cardWrapper:hover & {
+    top: 59%;
+  }
+}
+
+.title {
+  font-family: Poppins;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  margin-left: 16px;
+  color: #1c1b1f;
+}
+
+.text {
+  font-family: Poppins;
+  font-size: 14px;
+  line-height: 1.4;
+  color: #49454f;
+  margin-left: 16px;
+}
+
+.btnWrapper {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 8px;
+  margin-right: 16px;
+  visibility: hidden;
+
+  .cardWrapper:hover & {
+    visibility: visible;
+    padding-top: 8px;
+    padding-bottom: 16px;
+  }
 }
