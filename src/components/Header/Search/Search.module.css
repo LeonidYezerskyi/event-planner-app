@@ -7,6 +7,24 @@
   width: 100%;
   background-color: white;
   margin-bottom: 24px;
+
+  @media screen and (min-width: 480px) {
+    width: 430px;
+  }
+
+  @media screen and (min-width: 768px) {
+    position: absolute;
+    right: 115px;
+    top: 25px;
+    margin-bottom: 0;
+    width: 368px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    right: 170px;
+    top: 22px;
+    width: 410px;
+  }
 }
 
 .icon {

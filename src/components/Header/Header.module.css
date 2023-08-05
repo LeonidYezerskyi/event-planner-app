@@ -1,11 +1,29 @@
 .headerContainer {
   background-color: #fefcff;
   border-bottom: 1px solid #7b61ff;
+  position: relative;
 }
 
 .headerWrapper {
+  display: flex;
+  flex-direction: column;
   margin-right: 24px;
   margin-left: 24px;
+
+  @media screen and (min-width: 480px) {
+    align-items: center;
+  }
+
+  @media screen and (min-width: 768px) {
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+  }
+
+  @media screen and (min-width: 1280px) {
+    margin-right: 80px;
+    margin-left: 84px;
+  }
 }
 
 .headerTop {
@@ -16,4 +34,19 @@
   padding-top: 24px;
   padding-bottom: 24px;
   height: 48px;
+
+  @media screen and (min-width: 480px) {
+    width: 430px;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 100%;
+    padding-top: 26px;
+    padding-bottom: 18px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    padding-top: 22px;
+    padding-bottom: 22px;
+  }
 }
