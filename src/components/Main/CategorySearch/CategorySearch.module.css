@@ -14,3 +14,49 @@
   fill: #7b61ff;
   padding: 16px;
 }
+
+.icon2 {
+  padding-left: 21px;
+  padding-right: 4px;
+}
+
+.openWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  position: absolute;
+  width: 158px;
+  right: 80px;
+  top: 209px;
+  box-shadow: 0px 4px 10px 0px #00000040;
+  background-color: #fff;
+  border-radius: 8px;
+  z-index: 1;
+}
+
+.mainField {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-bottom: 1px solid #aca7c3;
+}
+
+.mainFieldText {
+  font-family: Poppins;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: #7b61ff;
+}
+
+.openWrapper p {
+  font-family: Poppins;
+  font-size: 14px;
+  line-height: 1;
+  color: #aca7c3;
+  padding: 8px 0 8px 24px;
+}
+
+.openWrapper p:not(:last-child) {
+  border-bottom: 1px solid #aca7c3;
+}
