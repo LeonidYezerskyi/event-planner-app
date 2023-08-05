@@ -6,19 +6,53 @@
   gap: 4px;
   border-radius: 8px;
   box-shadow: 2px 4px 9px 0px #a68dae47;
+  cursor: pointer;
+  width: 69px;
 }
 
 .langText {
-  font-family: Poppins;
+  font-family: Poppins, sans-serif;
   font-size: 16px;
   font-weight: 500;
-  line-height: 1;
+  line-height: 1.25;
   color: #3f3f3f;
   padding-left: 12px;
+}
+
+.langText2 {
+  position: relative;
+  color: #aca7c3;
+  padding-right: 12px;
+  padding-bottom: 4px;
+}
+
+.langText2::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 13px;
+  width: 44px;
+  border-bottom: 1px solid #aca7c3;
 }
 
 .langIcon {
   width: 24px;
   height: 24px;
-  padding: 12px 7px 12px 0;
+  padding: 12px 8px 12px 0;
+}
+
+.langSwitcherOpen {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+  border-radius: 8px;
+  box-shadow: 2px 4px 9px 0px #a68dae47;
+  width: 69px;
+  height: 88px;
+  cursor: pointer;
+  background-color: #fff;
 }
