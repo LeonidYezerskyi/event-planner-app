@@ -1,22 +1,62 @@
 .mainContainer {
+  position: relative;
   background-image: url("../../assets/background.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
 .menuWrapper {
+  position: relative;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: end;
   gap: 24px;
   padding-top: 40px;
-  margin-right: 24px;
+  margin-left: 56px;
   padding-bottom: 40px;
 
   @media screen and (min-width: 480px) {
     width: 430px;
     margin: 0 auto;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 688px;
+    padding-bottom: 24px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 1280px;
+    padding-bottom: 24px;
+  }
+}
+
+.eventsTitleWrapper {
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  width: 688px;
+
+  @media screen and (min-width: 1280px) {
+    width: 1280px;
+  }
+}
+
+.eventsTitle {
+  font-family: Poppins;
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 1.5;
+  color: #3f3f3f;
+  padding-bottom: 24px;
+
+  @media screen and (min-width: 1280px) {
+    position: absolute;
+    top: 45px;
   }
 }

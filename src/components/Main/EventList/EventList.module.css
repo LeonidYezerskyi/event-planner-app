@@ -1,13 +1,32 @@
+.listContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 145px;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 249px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    margin-bottom: 193px;
+  }
+}
+
 .listWrapper {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
   grid-column-gap: 0px;
   grid-row-gap: 24px;
-}
 
-.wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @media screen and (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 24px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    grid-template-columns: repeat(4, 1fr);
+    grid-row-gap: 40px;
+  }
 }

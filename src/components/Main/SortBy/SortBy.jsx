@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react";
 import { GoArrowUp, GoArrowDown } from "react-icons/go"
 import css from './SortBy.module.css'
 import sort from "../../../assets/sort.svg"
@@ -7,10 +7,24 @@ import sort2 from "../../../assets/sort2.svg"
 
 const SortBy = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const [isTablet, setIsTablet] = useState(window.innerWidth >= 768);
+
+    useEffect(() => {
+        const updateIsTablet = () => {
+            setIsTablet(window.innerWidth >= 768);
+        };
+
+        window.addEventListener("resize", updateIsTablet);
+
+        return () => {
+            window.removeEventListener("resize", updateIsTablet);
+        };
+    }, []);
 
     return (
         <>
             <div className={css.sortWrapper} onClick={() => setIsOpen(!isOpen)}>
+                {isTablet ? <p className={css.sortBtnText}>Sort by</p> : null}
                 <img className={css.img} src={sort} alt="sort-icon" />
             </div>
             {

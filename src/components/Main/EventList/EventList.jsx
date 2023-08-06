@@ -4,7 +4,7 @@ import css from "./EventList.module.css"
 
 const EventList = () => {
     return (
-        <div className={css.wrapper}>
+        <div className={css.listContainer}>
             <ul className={css.listWrapper}>
                 {events.map(({ title, date, time, place, id, description, category, priority, image }) => {
                     return (
