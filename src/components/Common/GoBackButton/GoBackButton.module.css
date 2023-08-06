@@ -1,0 +1,21 @@
+.backBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  font-family: Poppins;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: #7b61ff;
+  background-color: transparent;
+  padding-top: 42px;
+  &:hover {
+    color: #6243ff;
+  }
+}
+
+.iconBtn {
+  width: 24px;
+  height: 22px;
+}

@@ -54,6 +54,7 @@ button {
   border: 1px solid transparent;
   cursor: pointer;
   font-family: inherit;
+  text-align: center;
 }
 
 input,

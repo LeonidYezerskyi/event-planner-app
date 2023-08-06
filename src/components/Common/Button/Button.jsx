@@ -1,8 +1,11 @@
 import css from './Button.module.css';
+import cn from 'classnames';
 
-const Button = ({ text }) => {
+
+const Button = ({ text, className }) => {
+
     return (
-        <button className={css.btn} type='button'>{text}</button>
+        <button className={cn(css.btn, className)} type='button'>{text}</button>
     )
 }
 

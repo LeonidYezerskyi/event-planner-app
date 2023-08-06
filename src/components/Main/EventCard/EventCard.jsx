@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import Button from '../../Common/Button/Button'
 import css from './EventCard.module.css'
 
@@ -31,12 +32,12 @@ const EventCard = ({ image, title, date, time, place, id, description, category,
                         <p className={css.text}>{description}</p>
                     </div>
                     <div className={css.btnWrapper}>
-                        <Button text="More info" />
+                        <Link to={`/info/${id}`}><Button text="More info" /></Link>
                     </div>
                 </div>
 
             </div>
-        </li>
+        </li >
     )
 }
 
