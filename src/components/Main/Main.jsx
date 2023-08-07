@@ -4,6 +4,7 @@ import CreateButton from "./CreateButton/CreateButton";
 import EventList from "./EventList/EventList";
 import SortBy from "./SortBy/SortBy";
 import css from "./Main.module.css";
+import { Link } from "react-router-dom";
 
 const Main = () => {
     const [isTablet, setIsTablet] = useState(window.innerWidth >= 768);
@@ -25,7 +26,7 @@ const Main = () => {
             <div className={css.menuWrapper}>
                 <CategorySearch />
                 <SortBy />
-                <CreateButton />
+                <Link to={"/create"}><CreateButton /></Link>
             </div>
             <div className={css.eventsTitleWrapper}>
                 {isTablet ? <p className={css.eventsTitle}>My events</p> : null}

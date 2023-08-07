@@ -1,0 +1,90 @@
+.formWrapper {
+  width: 240px;
+  height: 976px;
+  border-radius: 8px;
+  background-color: #ffffff;
+  box-shadow: 2px 4px 9px 0px #a68dae47;
+  margin-bottom: 140px;
+  padding: 40px 16px;
+}
+
+.inputWrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.label {
+  display: block;
+  font-family: Poppins;
+  font-size: 16px;
+  line-height: 1;
+  letter-spacing: 0.4px;
+  color: #7b61ff;
+}
+
+.input {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  width: 226px;
+  height: 24px;
+  border-radius: 8px;
+  justify-content: space-between;
+  border: 1px solid #aca7c3;
+  font-family: Poppins, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #3f3f3f;
+  padding-left: 12px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.input:hover,
+.input:focus {
+  border-color: #7b61ff;
+}
+
+.inputDescr {
+  width: 191px;
+  height: 124px;
+  padding-right: 35px;
+  resize: none;
+}
+
+.inputDate {
+  width: 215px;
+  padding-right: 10px;
+
+  &::placeholder {
+    color: #3f3f3f;
+  }
+
+  &:focus::placeholder {
+    color: #7b61ff;
+  }
+}
+.clearIcon {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 45px;
+  right: 10px;
+  fill: #7b61ff;
+}
+
+.labelImg,
+.labelImg:hover,
+.labelImg::placeholder {
+  color: #aca7c3;
+  border-color: #aca7c3;
+  fill: #aca7c3;
+}
+
+.iconArrowUp {
+  position: absolute;
+  right: 7px;
+  bottom: 37px;
+  width: 24px;
+  height: 24px;
+  fill: #7b61ff;
+}
