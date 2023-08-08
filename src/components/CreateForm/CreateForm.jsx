@@ -4,9 +4,9 @@ import cn from "classnames";
 import css from "./CreateForm.module.css"
 import DatePickerOpen from '../DatePickerOpen/DatePickerOpen';
 import { format } from 'date-fns';
-import { useRef } from 'react';
 import { MdKeyboardArrowDown, MdKeyboardArrowUp } from "react-icons/md";
 import Button from '../Common/Button/Button';
+import { Link } from "react-router-dom";
 
 
 const CreateForm = () => {
@@ -17,14 +17,16 @@ const CreateForm = () => {
     const [isTimePickerOpen, setIsTimePickerOpen] = useState(false);
     const [isCategoryOpen, setIsCategoryOpen] = useState(false);
     const [isPriorityOpen, setIsPriorityOpen] = useState(false);
-
-
     const [isDatePickerOpen, setIsDatePickerOpen] = useState(false);
     const [selectedTime, setSelectedTime] = useState('');
     const [location, setLocation] = useState('');
     const [category, setCategory] = useState('');
     const [priority, setPriority] = useState('');
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+    const categoryOptions = ['Art', 'Music', 'Business', 'Conference', 'Workshop', 'Party', 'Sport'];
+
+    const priorityOptions = ['High', 'Medium', 'Low'];
 
     useEffect(() => {
         const handleWindowResize = () => {
@@ -41,9 +43,6 @@ const CreateForm = () => {
     const isMobileOrTablet = windowWidth <= 1279.9;
     const isDesktop = windowWidth >= 1280;
 
-    const inputRef = useRef(null);
-    const pickerRef = useRef(null);
-
     const handleInputChange = (e, setter) => {
         const value = e.target.value;
         setter(value);
@@ -58,107 +57,102 @@ const CreateForm = () => {
         setIsDatePickerOpen(false);
     };
 
-    const handleOutsideClick = (event) => {
-        if (pickerRef.current && !pickerRef.current.contains(event.target)) {
-            setIsDatePickerOpen(false);
-        }
-    };
-
-    useEffect(() => {
-        document.addEventListener('mousedown', handleOutsideClick);
-        return () => {
-            document.removeEventListener('mousedown', handleOutsideClick);
-        };
-    }, []);
-
     const formatDate = (date) => format(date, 'dd.MM.yy');
 
     return (
         <form className={css.formWrapper}>
             {/* Mobile and Tablet Layout */}
-            {isMobileOrTablet && (<><div>
-                <div className={css.inputWrapper}>
-                    <label htmlFor="title" className={css.label}>Title</label>
-                    <input
-                        className={css.input}
-                        placeholder='Input'
-                        type="text"
-                        id="title"
-                        value={title}
-                        onChange={(e) => handleInputChange(e, setTitle)}
-                    />
-
-                    <MdClose
-                        className={css.clearIcon}
-                        onClick={() => handleClearInput(setTitle)}
-                    />
-
-                </div>
-
-                <div className={css.inputWrapper}>
-                    <label className={css.label} htmlFor="description">Description</label>
-                    <textarea
-                        className={cn(css.input, css.inputDescr)}
-                        placeholder='Input'
-                        type="text"
-                        id="description"
-                        value={description}
-                        onChange={(e) => handleInputChange(e, setDescription)}
-                    />
-
-                    <MdClose
-                        className={css.clearIcon}
-                        onClick={() => handleClearInput(setDescription)}
-                    />
-
-                </div>
-
-                <div className={css.inputWrapper} ref={pickerRef}>
-                    <label className={css.label} htmlFor="selectedDate">Select date</label>
-                    <input
-                        className={cn(css.input, css.inputDate)}
-                        placeholder={isDatePickerOpen ? "Select date" : "Input"}
-                        type="text"
-                        id="selectedDate"
-                        value={selectedDate ? formatDate(selectedDate) : ''}
-                        onClick={() => setIsDatePickerOpen(!isDatePickerOpen)}
-                        readOnly
-                        ref={inputRef}
-
-                    />
-                    {isDatePickerOpen
-                        ? <MdKeyboardArrowUp className={css.iconArrowUp} />
-                        : <MdKeyboardArrowDown className={css.iconArrowUp} />
-                    }
-                    {isDatePickerOpen && (
-                        <DatePickerOpen
-                            setSelectedDay={setSelectedDay}
-                            setIsDatePickerOpen={setIsDatePickerOpen}
-                            selectedDate={selectedDay}
-                            handleDateChange={handleDateChange}
+            {isMobileOrTablet && (<>
+                <div>
+                    <div className={css.inputWrapper}>
+                        <label htmlFor="title" className={css.label}>Title</label>
+                        <input
+                            className={css.input}
+                            placeholder='Input'
+                            type="text"
+                            id="title"
+                            value={title}
+                            onChange={(e) => handleInputChange(e, setTitle)}
                         />
-                    )}
-                </div>
 
-                <div className={css.inputWrapper}>
-                    <label className={css.label} htmlFor="selectedTime">Select time</label>
-                    <input
-                        className={cn(css.input, css.inputDate)}
-                        placeholder={isTimePickerOpen ? "Select time" : "Input"}
-                        type="text"
-                        id="selectedTime"
-                        value={selectedTime}
-                        onChange={(e) => handleInputChange(e, setSelectedTime)}
-                        onClick={() => setIsTimePickerOpen(!isTimePickerOpen)}
-                        readOnly
+                        <MdClose
+                            className={css.clearIcon}
+                            onClick={() => handleClearInput(setTitle)}
+                        />
 
-                    />
-                    {isTimePickerOpen
-                        ? <MdKeyboardArrowUp className={css.iconArrowUp} />
-                        : <MdKeyboardArrowDown className={css.iconArrowUp} />
-                    }
+                    </div>
+
+                    <div className={css.inputWrapper}>
+                        <label className={css.label} htmlFor="description">Description</label>
+                        <textarea
+                            className={cn(css.input, css.inputDescr)}
+                            placeholder='Input'
+                            type="text"
+                            id="description"
+                            value={description}
+                            onChange={(e) => handleInputChange(e, setDescription)}
+                        />
+
+                        <MdClose
+                            className={css.clearIcon}
+                            onClick={() => handleClearInput(setDescription)}
+                        />
+
+                    </div>
+
+                    <div className={css.inputWrapper}>
+                        <label className={css.label} htmlFor="selectedDate">Select date</label>
+                        <input
+                            className={cn(css.input, css.inputDate)}
+                            placeholder={isDatePickerOpen ? "Select date" : "Input"}
+                            type="text"
+                            id="selectedDate"
+                            value={selectedDate ? formatDate(selectedDate) : ''}
+                            onClick={() => setIsDatePickerOpen(!isDatePickerOpen)}
+                            readOnly
+
+                        />
+                        {isDatePickerOpen
+                            ? <MdKeyboardArrowUp onClick={() => {
+                                setIsDatePickerOpen(false);
+                            }} className={css.iconArrowUp} />
+                            : <MdKeyboardArrowDown onClick={() => {
+                                setIsDatePickerOpen(true);
+                            }} className={css.iconArrowUp} />
+                        }
+                        {isDatePickerOpen && (
+                            <DatePickerOpen
+                                setSelectedDay={setSelectedDay}
+                                setIsDatePickerOpen={setIsDatePickerOpen}
+                                selectedDate={selectedDay}
+                                handleDateChange={handleDateChange}
+                            />
+                        )}
+                    </div>
+
+                    <div className={css.inputWrapper}>
+                        <label className={css.label} htmlFor="selectedTime">Select time</label>
+                        <input
+                            className={cn(css.input, css.inputDate)}
+                            placeholder={isTimePickerOpen ? "Select time" : "Input"}
+                            type="text"
+                            id="selectedTime"
+                            value={selectedTime}
+                            onChange={(e) => handleInputChange(e, setSelectedTime)}
+                            onClick={() => setIsTimePickerOpen(!isTimePickerOpen)}
+                            readOnly
+
+                        />
+                        {isTimePickerOpen
+                            ? <MdKeyboardArrowUp onClick={() => {
+                                setIsTimePickerOpen(false);
+                            }} className={css.iconArrowUp} />
+                            : <MdKeyboardArrowDown onClick={() => {
+                                setIsTimePickerOpen(true);
+                            }} className={css.iconArrowUp} />
+                        }
+                    </div>
                 </div>
-            </div>
 
                 <div>
                     <div className={css.inputWrapper}>
@@ -189,11 +183,33 @@ const CreateForm = () => {
                             value={category}
                             onChange={(e) => handleInputChange(e, setCategory)}
                             onClick={() => setIsCategoryOpen(!isCategoryOpen)}
+                            readOnly
 
                         />
                         {isCategoryOpen
-                            ? <MdKeyboardArrowUp className={css.iconArrowUp} />
-                            : <MdKeyboardArrowDown className={css.iconArrowUp} />
+                            ? (
+                                <>
+                                    <div className={cn(css.priorityOptions, css.categoryOptions)}>
+                                        {categoryOptions.map((option, index) => (
+                                            <div
+                                                key={index}
+                                                className={css.priorityOption}
+                                                onClick={() => {
+                                                    setCategory(option);
+                                                    setIsCategoryOpen(false);
+                                                }}
+                                            >
+                                                {option}
+                                            </div>
+                                        ))}
+                                    </div>
+                                    <MdKeyboardArrowUp onClick={() => {
+                                        setIsCategoryOpen(false);
+                                    }} className={cn(css.iconArrowUp, css.iconArrowUp2)} />
+                                </>)
+                            : (<MdKeyboardArrowDown onClick={() => {
+                                setIsCategoryOpen(true);
+                            }} className={css.iconArrowUp} />)
                         }
                     </div>
 
@@ -220,14 +236,41 @@ const CreateForm = () => {
                             value={priority}
                             onChange={(e) => handleInputChange(e, setPriority)}
                             onClick={() => setIsPriorityOpen(!isPriorityOpen)}
-
+                            readOnly
                         />
                         {isPriorityOpen
-                            ? <MdKeyboardArrowUp className={css.iconArrowUp} />
-                            : <MdKeyboardArrowDown className={css.iconArrowUp} />
+                            ? (
+                                <>
+                                    <div className={css.priorityOptions}>
+                                        {priorityOptions.map((option, index) => (
+                                            <div
+                                                key={index}
+                                                className={css.priorityOption}
+                                                onClick={() => {
+                                                    setPriority(option);
+                                                    setIsPriorityOpen(false);
+                                                }}
+                                            >
+                                                {option}
+                                            </div>
+                                        ))}
+                                    </div>
+                                    <MdKeyboardArrowUp onClick={() => {
+                                        setIsPriorityOpen(false);
+                                    }} className={cn(css.iconArrowUp, css.iconArrowUp2)} />
+                                </>)
+                            : (<MdKeyboardArrowDown onClick={() => {
+                                setIsPriorityOpen(true);
+                            }} className={css.iconArrowUp} />)
                         }
                     </div>
-                </div></>)}
+
+
+                    <Link to={"/"}><Button text="Add event" className={css.addBtn} /></Link>
+
+                </div>
+
+            </>)}
 
             {/* Desktop Layout */}
             {isDesktop && (<>
@@ -268,8 +311,9 @@ const CreateForm = () => {
 
                     </div>
                 </div>
+
                 <div className={css.secondColumn}>
-                    <div className={css.inputWrapper} ref={pickerRef}>
+                    <div className={css.inputWrapper}>
                         <label className={css.label} htmlFor="selectedDate">Select date</label>
                         <input
                             className={cn(css.input, css.inputDate)}
@@ -279,12 +323,15 @@ const CreateForm = () => {
                             value={selectedDate ? formatDate(selectedDate) : ''}
                             onClick={() => setIsDatePickerOpen(!isDatePickerOpen)}
                             readOnly
-                            ref={inputRef}
 
                         />
                         {isDatePickerOpen
-                            ? <MdKeyboardArrowUp className={css.iconArrowUp} />
-                            : <MdKeyboardArrowDown className={css.iconArrowUp} />
+                            ? <MdKeyboardArrowUp onClick={() => {
+                                setIsDatePickerOpen(false);
+                            }} className={css.iconArrowUp} />
+                            : <MdKeyboardArrowDown onClick={() => {
+                                setIsDatePickerOpen(true);
+                            }} className={css.iconArrowUp} />
                         }
                         {isDatePickerOpen && (
                             <DatePickerOpen
@@ -310,8 +357,12 @@ const CreateForm = () => {
 
                         />
                         {isTimePickerOpen
-                            ? <MdKeyboardArrowUp className={css.iconArrowUp} />
-                            : <MdKeyboardArrowDown className={css.iconArrowUp} />
+                            ? <MdKeyboardArrowUp onClick={() => {
+                                setIsTimePickerOpen(false);
+                            }} className={css.iconArrowUp} />
+                            : <MdKeyboardArrowDown onClick={() => {
+                                setIsTimePickerOpen(true);
+                            }} className={css.iconArrowUp} />
                         }
                     </div>
 
@@ -333,6 +384,7 @@ const CreateForm = () => {
 
                     </div>
                 </div>
+
                 <div className={css.thirdColumn}>
                     <div className={css.inputWrapper}>
                         <label className={css.label} htmlFor="category">Category</label>
@@ -344,11 +396,33 @@ const CreateForm = () => {
                             value={category}
                             onChange={(e) => handleInputChange(e, setCategory)}
                             onClick={() => setIsCategoryOpen(!isCategoryOpen)}
+                            readOnly
 
                         />
                         {isCategoryOpen
-                            ? <MdKeyboardArrowUp className={css.iconArrowUp} />
-                            : <MdKeyboardArrowDown className={css.iconArrowUp} />
+                            ? (
+                                <>
+                                    <div className={cn(css.priorityOptions, css.categoryOptions)}>
+                                        {categoryOptions.map((option, index) => (
+                                            <div
+                                                key={index}
+                                                className={css.priorityOption}
+                                                onClick={() => {
+                                                    setCategory(option);
+                                                    setIsCategoryOpen(false);
+                                                }}
+                                            >
+                                                {option}
+                                            </div>
+                                        ))}
+                                    </div>
+                                    <MdKeyboardArrowUp onClick={() => {
+                                        setIsCategoryOpen(false);
+                                    }} className={cn(css.iconArrowUp, css.iconArrowUp2)} />
+                                </>)
+                            : (<MdKeyboardArrowDown onClick={() => {
+                                setIsCategoryOpen(true);
+                            }} className={css.iconArrowUp} />)
                         }
                     </div>
 
@@ -375,17 +449,38 @@ const CreateForm = () => {
                             value={priority}
                             onChange={(e) => handleInputChange(e, setPriority)}
                             onClick={() => setIsPriorityOpen(!isPriorityOpen)}
-
+                            readOnly
                         />
                         {isPriorityOpen
-                            ? <MdKeyboardArrowUp className={css.iconArrowUp} />
-                            : <MdKeyboardArrowDown className={css.iconArrowUp} />
+                            ? (
+                                <>
+                                    <div className={css.priorityOptions}>
+                                        {priorityOptions.map((option, index) => (
+                                            <div
+                                                key={index}
+                                                className={css.priorityOption}
+                                                onClick={() => {
+                                                    setPriority(option);
+                                                    setIsPriorityOpen(false);
+                                                }}
+                                            >
+                                                {option}
+                                            </div>
+                                        ))}
+                                    </div>
+                                    <MdKeyboardArrowUp onClick={() => {
+                                        setIsPriorityOpen(false);
+                                    }} className={cn(css.iconArrowUp, css.iconArrowUp2)} />
+                                </>)
+                            : (<MdKeyboardArrowDown onClick={() => {
+                                setIsPriorityOpen(true);
+                            }} className={css.iconArrowUp} />)
                         }
                     </div>
-                </div></>)}
 
-            <Button text="Add event" className={css.addBtn} />
-
+                    <Link to={"/"}><Button text="Add event" className={css.addBtn} /></Link>
+                </div>
+            </>)}
         </form>
     );
 };

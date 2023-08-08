@@ -10,11 +10,11 @@
   padding: 4px;
 
   @media screen and (min-width: 768px) {
-    width: 308px;
+    width: 299px;
   }
 
   @media screen and (min-width: 1280px) {
-    width: 372px;
+    width: 364px;
   }
 }
 

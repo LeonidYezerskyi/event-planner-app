@@ -59,7 +59,7 @@
 }
 
 .input {
-  margin-top: 10px;
+  margin-top: 8px;
   margin-bottom: 20px;
   width: 226px;
   height: 22px;
@@ -104,9 +104,9 @@
 }
 
 .inputDate {
-  width: 215px;
+  width: 216px;
   padding-right: 10px;
-
+  cursor: pointer;
   &::placeholder {
     color: #3f3f3f;
   }
@@ -116,7 +116,7 @@
   }
 
   @media screen and (min-width: 768px) {
-    width: 283px;
+    width: 284px;
   }
 
   @media screen and (min-width: 1280px) {
@@ -131,6 +131,7 @@
   top: 44px;
   right: 10px;
   fill: #7b61ff;
+  cursor: pointer;
 }
 
 .labelImg,
@@ -148,11 +149,14 @@
   width: 24px;
   height: 24px;
   fill: #7b61ff;
+  cursor: pointer;
+}
+
+.iconArrowUp2 {
+  top: 42px;
 }
 
 .addBtn {
-  position: absolute;
-  bottom: 40px;
   width: 240px;
   height: 56px;
   padding: 16px 12px;
@@ -162,13 +166,67 @@
   font-size: 16px;
   line-height: 1.5px;
   margin-top: 20px;
+  z-index: 1;
 
   @media screen and (min-width: 768px) {
-    right: 24px;
+    width: 193px;
+    margin-left: 115px;
+    margin-top: 120px;
   }
 
   @media screen and (min-width: 1280px) {
-    right: 40px;
-    bottom: 54px;
+    margin-left: 181px;
+    margin-top: 41px;
+  }
+}
+
+.priorityOptions {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 208px;
+  height: 136px;
+  padding: 16px;
+  box-shadow: 2px 4px 9px 0px #a68dae47;
+  background-color: #ffffff;
+  border-radius: 8px;
+  margin-top: -2px;
+  z-index: 2;
+  @media screen and (min-width: 768px) {
+    width: 276px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 340px;
+  }
+}
+
+.priorityOption {
+  font-family: Poppins;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #3f3f3f;
+  padding-bottom: 16px;
+  padding-top: 16px;
+  cursor: pointer;
+  &:hover {
+    color: #7b61ff;
+  }
+}
+
+.priorityOption:not(:last-child) {
+  border-bottom: 1px solid #aca7c3;
+  &:hover {
+    border-color: #7b61ff;
+  }
+}
+
+.categoryOptions {
+  height: 360px;
+  @media screen and (min-width: 768px) {
+  }
+
+  @media screen and (min-width: 1280px) {
   }
 }
