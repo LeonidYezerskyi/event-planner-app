@@ -167,6 +167,12 @@
   line-height: 1.5px;
   margin-top: 20px;
   z-index: 1;
+  background-color: #7b61ff;
+  color: #ffffff;
+
+  &:hover {
+    background-color: #6243ff;
+  }
 
   @media screen and (min-width: 768px) {
     width: 193px;
@@ -175,7 +181,7 @@
   }
 
   @media screen and (min-width: 1280px) {
-    margin-left: 181px;
+    margin-left: 178px;
     margin-top: 41px;
   }
 }

@@ -3,10 +3,13 @@ import { events } from "../../data/data.js"
 import Button from '../../components/Common/Button/Button';
 import css from "./InfoEventPage.module.css"
 import GoBackButton from '../../components/Common/GoBackButton/GoBackButton.jsx';
+import { useSelector } from 'react-redux';
 
 const InfoEventPage = () => {
     const { id } = useParams();
-    const event = events.find(event => event.id === id);
+    const newEvents = useSelector(state => state.events);
+    const combinedEvents = [...events, ...newEvents];
+    const event = combinedEvents.find(event => event.id === id);
 
     return (
         <div className={css.infoContainer}>

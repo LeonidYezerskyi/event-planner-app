@@ -7,9 +7,15 @@ import { format } from 'date-fns';
 import { MdKeyboardArrowDown, MdKeyboardArrowUp } from "react-icons/md";
 import Button from '../Common/Button/Button';
 import { Link } from "react-router-dom";
-
+import { useSelector, useDispatch } from 'react-redux';
+import { addEvent } from '../../redux/actions';
+import defaultImg1 from "../../assets/images/defaultImg.png";
+import { nanoid } from 'nanoid'
 
 const CreateForm = () => {
+    const dispatch = useDispatch();
+    const events = useSelector(state => state.events);
+
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [selectedDate, setSelectedDate] = useState('');
@@ -59,8 +65,34 @@ const CreateForm = () => {
 
     const formatDate = (date) => format(date, 'dd.MM.yy');
 
+    const handleFormSubmit = (e) => {
+        e.preventDefault();
+
+        const newEvent = {
+            title,
+            date: formatDate(selectedDate),
+            time: selectedTime,
+            place: location,
+            description,
+            category,
+            priority,
+            id: nanoid(),
+            image: defaultImg1,
+        };
+        console.log(newEvent);
+        dispatch(addEvent(newEvent));
+
+        setTitle('');
+        setSelectedDate('');
+        setSelectedTime('');
+        setLocation('');
+        setDescription('');
+        setCategory('');
+        setPriority('');
+    };
+
     return (
-        <form className={css.formWrapper}>
+        <form className={css.formWrapper} id="form" onSubmit={handleFormSubmit}>
             {/* Mobile and Tablet Layout */}
             {isMobileOrTablet && (<>
                 <div>
@@ -135,22 +167,21 @@ const CreateForm = () => {
                         <input
                             className={cn(css.input, css.inputDate)}
                             placeholder={isTimePickerOpen ? "Select time" : "Input"}
-                            type="text"
+                            type="time"
                             id="selectedTime"
                             value={selectedTime}
                             onChange={(e) => handleInputChange(e, setSelectedTime)}
                             onClick={() => setIsTimePickerOpen(!isTimePickerOpen)}
-                            readOnly
 
                         />
-                        {isTimePickerOpen
+                        {/* {isTimePickerOpen
                             ? <MdKeyboardArrowUp onClick={() => {
                                 setIsTimePickerOpen(false);
                             }} className={css.iconArrowUp} />
                             : <MdKeyboardArrowDown onClick={() => {
                                 setIsTimePickerOpen(true);
                             }} className={css.iconArrowUp} />
-                        }
+                        } */}
                     </div>
                 </div>
 
@@ -266,7 +297,7 @@ const CreateForm = () => {
                     </div>
 
 
-                    <Link to={"/"}><Button text="Add event" className={css.addBtn} /></Link>
+                    <button className={css.addBtn} type='submit'>Add event</button>
 
                 </div>
 
@@ -478,7 +509,7 @@ const CreateForm = () => {
                         }
                     </div>
 
-                    <Link to={"/"}><Button text="Add event" className={css.addBtn} /></Link>
+                    <Link to={"/"}><button className={css.addBtn} type='submit'>Add event</button></Link>
                 </div>
             </>)}
         </form>
