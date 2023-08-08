@@ -1,4 +1,5 @@
 .formWrapper {
+  position: relative;
   width: 240px;
   height: 976px;
   border-radius: 8px;
@@ -6,6 +7,41 @@
   box-shadow: 2px 4px 9px 0px #a68dae47;
   margin-bottom: 140px;
   padding: 40px 16px;
+
+  @media screen and (min-width: 768px) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 24px;
+    grid-row-gap: 0px;
+    width: 640px;
+    height: 576px;
+    padding: 40px 24px;
+    margin-bottom: 308px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 42px;
+    padding: 40px 40px 54px 40px;
+    width: 1200px;
+    height: 396px;
+    margin-bottom: 260px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .firstColumn > * {
+    grid-column: 1;
+  }
+
+  .secondColumn > * {
+    grid-column: 2;
+  }
+
+  .thirdColumn > * {
+    grid-column: 3;
+  }
 }
 
 .inputWrapper {
@@ -26,7 +62,7 @@
   margin-top: 10px;
   margin-bottom: 20px;
   width: 226px;
-  height: 24px;
+  height: 22px;
   border-radius: 8px;
   justify-content: space-between;
   border: 1px solid #aca7c3;
@@ -37,6 +73,14 @@
   padding-left: 12px;
   padding-top: 16px;
   padding-bottom: 16px;
+
+  @media screen and (min-width: 768px) {
+    width: 294px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 358px;
+  }
 }
 
 .input:hover,
@@ -46,9 +90,17 @@
 
 .inputDescr {
   width: 191px;
-  height: 124px;
+  height: 122px;
   padding-right: 35px;
   resize: none;
+
+  @media screen and (min-width: 768px) {
+    width: 259px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 323px;
+  }
 }
 
 .inputDate {
@@ -62,12 +114,21 @@
   &:focus::placeholder {
     color: #7b61ff;
   }
+
+  @media screen and (min-width: 768px) {
+    width: 283px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 348px;
+  }
 }
+
 .clearIcon {
   position: absolute;
   width: 20px;
   height: 20px;
-  top: 45px;
+  top: 44px;
   right: 10px;
   fill: #7b61ff;
 }
@@ -87,4 +148,27 @@
   width: 24px;
   height: 24px;
   fill: #7b61ff;
+}
+
+.addBtn {
+  position: absolute;
+  bottom: 40px;
+  width: 240px;
+  height: 56px;
+  padding: 16px 12px;
+  border-radius: 8px;
+  box-shadow: 2px 4px 9px 0px #a68dae47;
+  font-family: Poppins;
+  font-size: 16px;
+  line-height: 1.5px;
+  margin-top: 20px;
+
+  @media screen and (min-width: 768px) {
+    right: 24px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    right: 40px;
+    bottom: 54px;
+  }
 }

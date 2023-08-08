@@ -8,6 +8,10 @@
   cursor: pointer;
 }
 
+.createWrapper:hover {
+  background-color: #6243ff;
+}
+
 .icon {
   width: 24px;
   height: 24px;
