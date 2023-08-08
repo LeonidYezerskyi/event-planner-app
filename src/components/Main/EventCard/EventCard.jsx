@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import Button from '../../Common/Button/Button'
 import css from './EventCard.module.css'
 
@@ -40,5 +41,17 @@ const EventCard = ({ image, title, date, time, place, id, description, category,
         </li >
     )
 }
+
+EventCard.propTypes = {
+    image: PropTypes.string,
+    title: PropTypes.string.isRequired,
+    date: PropTypes.string.isRequired,
+    time: PropTypes.string.isRequired,
+    place: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    category: PropTypes.string.isRequired,
+    priority: PropTypes.string.isRequired,
+};
 
 export default EventCard

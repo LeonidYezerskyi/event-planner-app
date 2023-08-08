@@ -1,6 +1,6 @@
 import { DayPicker } from 'react-day-picker';
+import PropTypes from 'prop-types';
 import 'react-day-picker/dist/style.css';
-
 import css from './DatePickerOpen.module.css'
 
 
@@ -40,5 +40,12 @@ const DatePickerOpen = ({ setSelectedDay, setIsDatePickerOpen, selectedDate, han
         </div>
     )
 }
+
+DatePickerOpen.propTypes = {
+    setSelectedDay: PropTypes.func.isRequired,
+    setIsDatePickerOpen: PropTypes.func.isRequired,
+    selectedDate: PropTypes.instanceOf(Date),
+    handleDateChange: PropTypes.func.isRequired,
+};
 
 export default DatePickerOpen
