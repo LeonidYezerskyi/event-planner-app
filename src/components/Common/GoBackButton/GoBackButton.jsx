@@ -1,6 +1,6 @@
-import css from './GoBackButton.module.css'
 import { BsArrowLeft } from "react-icons/bs"
 import { useLocation, useNavigate } from 'react-router-dom';
+import css from './GoBackButton.module.css'
 
 const GoBackButton = () => {
     const location = useLocation();

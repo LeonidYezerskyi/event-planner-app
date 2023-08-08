@@ -1,20 +1,17 @@
 import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { MdClose } from 'react-icons/md';
 import cn from "classnames";
-import css from "./CreateForm.module.css"
-import DatePickerOpen from '../DatePickerOpen/DatePickerOpen';
 import { format } from 'date-fns';
 import { MdKeyboardArrowDown, MdKeyboardArrowUp } from "react-icons/md";
-import Button from '../Common/Button/Button';
-import { Link } from "react-router-dom";
-import { useSelector, useDispatch } from 'react-redux';
+import DatePickerOpen from '../DatePickerOpen/DatePickerOpen';
 import { addEvent } from '../../redux/actions';
 import defaultImg1 from "../../assets/images/defaultImg.png";
 import { nanoid } from 'nanoid'
+import css from "./CreateForm.module.css"
 
 const CreateForm = () => {
     const dispatch = useDispatch();
-    const events = useSelector(state => state.events);
 
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
@@ -79,7 +76,6 @@ const CreateForm = () => {
             id: nanoid(),
             image: defaultImg1,
         };
-        console.log(newEvent);
         dispatch(addEvent(newEvent));
 
         setTitle('');
@@ -174,14 +170,6 @@ const CreateForm = () => {
                             onClick={() => setIsTimePickerOpen(!isTimePickerOpen)}
 
                         />
-                        {/* {isTimePickerOpen
-                            ? <MdKeyboardArrowUp onClick={() => {
-                                setIsTimePickerOpen(false);
-                            }} className={css.iconArrowUp} />
-                            : <MdKeyboardArrowDown onClick={() => {
-                                setIsTimePickerOpen(true);
-                            }} className={css.iconArrowUp} />
-                        } */}
                     </div>
                 </div>
 
@@ -379,22 +367,13 @@ const CreateForm = () => {
                         <input
                             className={cn(css.input, css.inputDate)}
                             placeholder={isTimePickerOpen ? "Select time" : "Input"}
-                            type="text"
+                            type="time"
                             id="selectedTime"
                             value={selectedTime}
                             onChange={(e) => handleInputChange(e, setSelectedTime)}
                             onClick={() => setIsTimePickerOpen(!isTimePickerOpen)}
-                            readOnly
 
                         />
-                        {isTimePickerOpen
-                            ? <MdKeyboardArrowUp onClick={() => {
-                                setIsTimePickerOpen(false);
-                            }} className={css.iconArrowUp} />
-                            : <MdKeyboardArrowDown onClick={() => {
-                                setIsTimePickerOpen(true);
-                            }} className={css.iconArrowUp} />
-                        }
                     </div>
 
                     <div className={css.inputWrapper}>
@@ -509,7 +488,7 @@ const CreateForm = () => {
                         }
                     </div>
 
-                    <Link to={"/"}><button className={css.addBtn} type='submit'>Add event</button></Link>
+                    <button className={css.addBtn} type='submit'>Add event</button>
                 </div>
             </>)}
         </form>

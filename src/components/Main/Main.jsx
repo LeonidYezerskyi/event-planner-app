@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import CategorySearch from "./CategorySearch/CategorySearch";
 import CreateButton from "./CreateButton/CreateButton";
 import EventList from "./EventList/EventList";
 import SortBy from "./SortBy/SortBy";
 import css from "./Main.module.css";
-import { Link } from "react-router-dom";
 
 const Main = () => {
     const [isTablet, setIsTablet] = useState(window.innerWidth >= 768);

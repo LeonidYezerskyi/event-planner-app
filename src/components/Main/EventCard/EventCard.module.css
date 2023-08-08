@@ -96,9 +96,19 @@
   top: 70%;
   background-color: #ffffff;
   height: 200px;
+  padding-right: 16px;
+  padding-left: 16px;
 
   .cardWrapper:hover & {
     top: 59%;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 300px;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 270px;
   }
 }
 
@@ -109,7 +119,6 @@
   line-height: 1.5;
   padding-top: 16px;
   padding-bottom: 16px;
-  margin-left: 16px;
   color: #1c1b1f;
 }
 
@@ -118,14 +127,12 @@
   font-size: 14px;
   line-height: 1.4;
   color: #49454f;
-  margin-left: 16px;
 }
 
 .btnWrapper {
   display: flex;
   justify-content: flex-end;
   padding-top: 8px;
-  margin-right: 16px;
   visibility: hidden;
 
   .cardWrapper:hover & {

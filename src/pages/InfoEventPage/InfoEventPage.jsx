@@ -1,9 +1,9 @@
 import { useParams } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import { events } from "../../data/data.js"
 import Button from '../../components/Common/Button/Button';
 import css from "./InfoEventPage.module.css"
 import GoBackButton from '../../components/Common/GoBackButton/GoBackButton.jsx';
-import { useSelector } from 'react-redux';
 
 const InfoEventPage = () => {
     const { id } = useParams();

@@ -1,7 +1,7 @@
+import { useSelector } from 'react-redux';
 import EventCard from '../EventCard/EventCard';
 import { events } from "../../../data/data"
 import css from "./EventList.module.css"
-import { useSelector } from 'react-redux';
 
 const EventList = () => {
     const newEvents = useSelector(state => state.events);
