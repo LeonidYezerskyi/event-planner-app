@@ -1,5 +1,7 @@
 # Event-planner-app
 
+https://event-planner-application.netlify.app/
+
 Event Planner is a web application that allows users to plan and organize events. 
 
 There are following pages:
